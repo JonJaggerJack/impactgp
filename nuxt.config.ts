@@ -3,6 +3,8 @@ export default defineNuxtConfig({
 	css: ["~/assets/styles/fonts.scss", "~/assets/styles/main.scss"],
 
 	app: {
+		pageTransition: { name: "fade", mode: "out-in" },
+
 		head: {
 			title: "Impact Group",
 			meta: [
@@ -72,6 +74,53 @@ export default defineNuxtConfig({
 		plugins: {
 			tailwindcss: {},
 			autoprefixer: {}
+		}
+	},
+	swiper: {},
+
+	modules: [
+		"@nuxtjs/sanity",
+		"nuxt-swiper",
+		[
+			"@pinia/nuxt",
+			{
+				autoImports: ["defineStore", "acceptHMRUpdate"]
+			}
+		],
+		"@vueuse/motion/nuxt",
+		[
+			"nuxt-mail",
+			{
+				message: {
+					to: "info@impactgp.net"
+				},
+				smtp: {
+					pool: true,
+					host: "mail.impactgp.net",
+					port: 465,
+					secure: true,
+					auth: {
+						user: "info@impactgp.net",
+						pass: "impactgroup@23"
+					}
+				}
+			}
+		]
+	],
+
+	sanity: {
+		projectId: "0y216ymg",
+		dataset: "production",
+		perspective: "published"
+	},
+
+	runtimeConfig: {
+		sanity: {
+			token: process.env.NUXT_SANITY_TOKEN
+		},
+		public: {
+			email_sender: process.env.MAILUSER,
+			pass_sender: process.env.MAILPASS
 		}
 	}
 });

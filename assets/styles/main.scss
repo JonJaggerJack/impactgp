@@ -10,22 +10,35 @@
 
     html {
         scroll-behavior: smooth;
+        @apply text-blue;
     }
 
     h1,
     h2,
     h3 {
-        @apply font-black;
+        @apply font-serif font-bold;
     }
     h1 {
-        @apply font-black;
+        letter-spacing: -1.5px;
+        @apply font-extrabold;
+        line-height: 1.2 !important;
     }
     h2 {
-        @apply text-2xl sm:text-2xl;
+        @apply text-2xl sm:text-2xl font-extrabold;
+        line-height: 1.3 !important;
+        letter-spacing: -0.5px;
+    }
+    h3 {
+        letter-spacing: -0.5px;
     }
 
     a {
         @apply font-medium;
+    }
+
+    a,
+    button {
+        @apply outline-none focus:outline-none;
     }
 }
 
@@ -48,4 +61,198 @@
     &__blue_1 {
         @apply bg-blue_1 text-white;
     }
+    &__blue {
+        @apply bg-blue text-white;
+    }
+    &:hover {
+        @apply underline scale-105 transition-all duration-500 ease-in-out;
+    }
 }
+
+.i-btn-2:hover {
+    @apply scale-105 transition-all duration-500 ease-in-out;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+}
+
+footer,
+nav,
+.i-menu-responsive {
+    .router-link-active.router-link-exact-active {
+        @apply text-primary font-bold;
+    }
+}
+
+.scroll {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #000061;
+    border-radius: 50%;
+    position: relative;
+    -webkit-animation: down 1.5s infinite;
+    animation: down 1.5s infinite;
+}
+.scroll::before {
+    content: "";
+    position: absolute;
+    top: 16px;
+    left: 18px;
+    width: 12px;
+    height: 12px;
+    border-left: 3px solid #000061;
+    border-bottom: 3px solid #000061;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+@keyframes down {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translateY(15px);
+    }
+    40% {
+        transform: translate(0);
+    }
+}
+@-webkit-keyframes down {
+    0% {
+        transform: translate(0);
+    }
+    20% {
+        transform: translateY(15px);
+    }
+    40% {
+        transform: translate(0);
+    }
+}
+
+@keyframes scroll {
+    0% {
+        height: 40px;
+    }
+    30% {
+        height: 70px;
+    }
+    60% {
+        height: 40px;
+    }
+}
+@-webkit-keyframes scroll {
+    0% {
+        height: 40px;
+    }
+    30% {
+        height: 70px;
+    }
+    60% {
+        height: 40px;
+    }
+}
+
+.i-article-description::before {
+    content: "Br\e8ve intro \21ac";
+    font-weight: 500;
+    padding-right: 0.5em;
+    @apply text-primary font-semibold;
+}
+
+.i-content-formater {
+    @apply mt-0 space-y-8;
+    img {
+        -webkit-border-radius: 8px;
+        -moz-border-radius: 8px;
+        -ms-border-radius: 8px;
+        -o-border-radius: 8px;
+        border-radius: 8px;
+
+        @apply w-full object-cover mb-6;
+    }
+
+    p {
+        @apply pb-6 last:pb-0;
+    }
+
+    blockquote {
+        @apply mb-6  bg-blue bg-opacity-[0.06] border-l-2  border-l-blue  p-4;
+    }
+
+    a {
+        @apply text-primary font-semibold hover:underline;
+    }
+
+    ul {
+        li {
+            @apply pl-6 mb-4 relative;
+            &::after {
+                content: "";
+                @apply w-3 h-1.5 bg-primary rounded-md absolute left-0 top-2;
+            }
+        }
+    }
+
+    h2 {
+        @apply text-2xl sm:text-3xl font-extrabold mb-4;
+    }
+    h3 {
+        @apply text-lg sm:text-xl mb-4 font-bold;
+    }
+}
+
+ul li a {
+    @apply hover:text-primary hover:font-medium;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #fd7135 !important;
+}
+
+.swiper-pagination-progressbar {
+    height: 3px !important;
+
+    .swiper-pagination-progressbar-fill {
+        background: #fd7135 !important;
+    }
+}
+
+.swiper-pagination {
+    @apply sm:bottom-8;
+}
+
+.swiper-pagination.swiper-pagination-progressbar {
+    z-index: 99 !important;
+}
+
+.swiper-pagination-bullet {
+    background: #fd7135 !important;
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.swiper-slide {
+    min-height: 100% !important;
+}
+
+.swiper-slide.swiper-slide-visible.swiper-slide-active {
+    opacity: 1 !important;
+}
+
+.swiper-slide,
+.swiper-slide.swiper-slide-prev {
+    opacity: 0 !important;
+}
+// .swiper-slide-prev {
+//     opacity: 0 !important;
+// }
+
+@import url(/assets/styles/animations.scss);
+
+@import url(/assets/others/loaders.scss);
