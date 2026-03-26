@@ -12,7 +12,7 @@ export default defineNuxtConfig({
 				{ name: "viewport", content: "width=device-width, initial-scale=1" },
 				{
 					name: "description",
-					content: "Helping Small Business Grow Big"
+					content: "Impact Group accompagne les jeunes entrepreneurs congolais pour bâtir une économie plus prospère en RDC."
 				},
 				{ name: "format-detection", content: "telephone=no" },
 
@@ -22,7 +22,7 @@ export default defineNuxtConfig({
 				{ property: "og:title", content: "Impact Group" },
 				{
 					property: "og:description",
-					content: "Helping Small Business Grow Big"
+					content: "Impact Group accompagne les jeunes entrepreneurs congolais pour bâtir une économie plus prospère en RDC."
 				},
 				{ property: "og:url", content: "https://impactgp.net" },
 				{ property: "og:locale", content: "fr_FR" },
@@ -45,7 +45,7 @@ export default defineNuxtConfig({
 				{ name: "twitter:title", content: "Impact Group" },
 				{
 					name: "twitter:description",
-					content: "Helping Small Business Grow Big"
+					content: "Impact Group accompagne les jeunes entrepreneurs congolais pour bâtir une économie plus prospère en RDC."
 				},
 				{
 					name: "twitter:image",
@@ -57,7 +57,7 @@ export default defineNuxtConfig({
 			link: [
 				{
 					rel: "me",
-					href: "https://twitter.com/impactgroup"
+					href: "https://twitter.com/rdc_impact"
 				},
 				{ rel: "icon", type: "image/x-icon", href: "/img/favicons/favicon.ico" },
 				{
@@ -98,6 +98,7 @@ export default defineNuxtConfig({
 	modules: [
 		"@nuxtjs/sanity",
 		"nuxt-swiper",
+		"@nuxtjs/sitemap",
 		[
 			"@pinia/nuxt",
 			{
@@ -117,8 +118,8 @@ export default defineNuxtConfig({
 					port: 465,
 					secure: true,
 					auth: {
-						user: "info@impactgp.net",
-						pass: "impactgroup@23"
+						user: process.env.NUXT_SMTP_USER,
+						pass: process.env.NUXT_SMTP_PASS
 					}
 				}
 			}
@@ -129,6 +130,23 @@ export default defineNuxtConfig({
 		projectId: "0y216ymg",
 		dataset: "production",
 		perspective: "published"
+	},
+
+	site: {
+		url: "https://impactgp.net"
+	},
+
+	sitemap: {
+		strict: true,
+		urls: [
+			{ loc: "/", changefreq: "weekly", priority: 1.0 },
+			{ loc: "/a-propos", changefreq: "monthly", priority: 0.8 },
+			{ loc: "/services", changefreq: "monthly", priority: 0.8 },
+			{ loc: "/galerie", changefreq: "weekly", priority: 0.7 },
+			{ loc: "/blog", changefreq: "daily", priority: 0.9 },
+			{ loc: "/evenements", changefreq: "daily", priority: 0.9 },
+			{ loc: "/nous-contacter", changefreq: "yearly", priority: 0.6 }
+		]
 	},
 
 	runtimeConfig: {

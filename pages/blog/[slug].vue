@@ -412,7 +412,7 @@ useHead({
   meta: [
     { property: "og:title", content: title },
     { property: "og:type", content: "article" },
-    { property: "og:locale", content: "en" },
+    { property: "og:locale", content: "fr_FR" },
     { property: "og:site_name", content: "Impact Group" },
     { property: "og:image:alt", content: title },
     {

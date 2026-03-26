@@ -27,7 +27,7 @@
                 >A propos</NuxtLink
               >
             </li>
-            <li class="hidden">
+            <li>
               <NuxtLink to="/services" class="i-underline-animation--txt"
                 >Services</NuxtLink
               >
@@ -149,6 +149,13 @@
                           to="/a-propos"
                         >
                           <span>À Propos</span>
+                        </NuxtLink>
+                        <NuxtLink
+                          @click="close_menu()"
+                          class="py-4 i-link min-w-full"
+                          to="/services"
+                        >
+                          <span>Services</span>
                         </NuxtLink>
                         <NuxtLink
                           @click="close_menu()"
