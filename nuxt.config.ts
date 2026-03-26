@@ -8,23 +8,40 @@ export default defineNuxtConfig({
 		head: {
 			title: "Impact Group",
 			meta: [
-				{ charset: "utf-16" },
+				{ charset: "utf-8" },
 				{ name: "viewport", content: "width=device-width, initial-scale=1" },
 				{
 					name: "description",
 					content: "Helping Small Business Grow Big"
 				},
 				{ name: "format-detection", content: "telephone=no" },
+
+				// Open Graph (Facebook, WhatsApp, LinkedIn, Telegram…)
+				{ property: "og:type", content: "website" },
+				{ property: "og:site_name", content: "Impact Group" },
 				{ property: "og:title", content: "Impact Group" },
 				{
 					property: "og:description",
 					content: "Helping Small Business Grow Big"
 				},
-				{ property: "og:url", content: "https://impact-group.vercel.app" },
+				{ property: "og:url", content: "https://impactgp.net" },
+				{ property: "og:locale", content: "fr_FR" },
 				{
 					property: "og:image",
-					content: "https://impact-group.vercel.app/img/brand/impact_group_logo.jpg"
+					content: "https://impactgp.net/img/brand/impact_group_logo.jpg"
 				},
+				{
+					property: "og:image:secure_url",
+					content: "https://impactgp.net/img/brand/impact_group_logo.jpg"
+				},
+				{ property: "og:image:type", content: "image/jpeg" },
+				{ property: "og:image:width", content: "1200" },
+				{ property: "og:image:height", content: "630" },
+				{ property: "og:image:alt", content: "Impact Group Logo" },
+
+				// Twitter / X
+				{ name: "twitter:card", content: "summary_large_image" },
+				{ name: "twitter:site", content: "@rdc_impact" },
 				{ name: "twitter:title", content: "Impact Group" },
 				{
 					name: "twitter:description",
@@ -32,9 +49,9 @@ export default defineNuxtConfig({
 				},
 				{
 					name: "twitter:image",
-					content: "https://impact-group.vercel.app/img/brand/impact_group_logo.jpg"
+					content: "https://impactgp.net/img/brand/impact_group_logo.jpg"
 				},
-				{ name: "twitter:card", content: "summary_large_image" }
+				{ name: "twitter:image:alt", content: "Impact Group Logo" }
 			],
 
 			link: [

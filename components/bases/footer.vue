@@ -138,11 +138,13 @@
     <section class="i-wrapper border-t border-t-gray-300">
       <div class="i-container">
         <div class="py-4 text-xs sm:text-sm text-gray-500 text-center">
-          © 2024 Impact Group all rights reserved.
+          © {{ currentYear }} Impact Group all rights reserved.
         </div>
       </div>
     </section>
   </footer>
 </template>
 
-<script setup></script>
+<script setup>
+const currentYear = new Date().getFullYear()
+</script>
